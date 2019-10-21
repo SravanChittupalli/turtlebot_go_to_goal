@@ -19,7 +19,7 @@ int main(int argc , char **argv)
 	ros::init(argc , argv , "turtlesim_cleaner_publisher");
 
 	ros::NodeHandle n;
-	double speed,angular_speed;
+	double speed,angular_speed , x-ord , y-ord;
 	double distance,angle;
 	bool Forward,Clockwise;
 
@@ -45,40 +45,21 @@ int main(int argc , char **argv)
 	// cout<<"clockwise?: ";
 	// cin>>Clockwise;
 	// rotate(deg2rad(angular_speed) , deg2rad(angle) , Clockwise);
+	
 	turtlesim::Pose pose;
-
-	pose.x = 0.5;
-	pose.y = 0.5;
+	
+	cout<<"enter x co-ordinate: ";
+	cin>> x-ord;
+	cout<<"enter y co-ordinate: ";
+	cin>> y-ord;
+	
+	pose.x = x-ord;
+	pose.y = y-ord;
 	pose.theta = 0;
 	go_to_goal(pose , 0.0001);
 
 	//loop.sleep();
 
-	pose.x = 8;
-	pose.y = 0;
-	pose.theta = 0;
-	go_to_goal(pose , 0.0001);
-
-	//loop.sleep();
-
-		pose.x = 9;
-	pose.y = 9;
-	pose.theta = 0;
-	go_to_goal(pose , 0.0001);
-
-	//loop.sleep();
-
-		pose.x = 0;
-	pose.y = 0;
-	pose.theta = 0;
-	go_to_goal(pose , 0.0001);
-
-	//loop.sleep();
-
-		pose.x = 5;
-	pose.y = 5;
-	pose.theta = 0;
-	go_to_goal(pose , 0.0001);
 	ros::Rate loop(100);
 	loop.sleep();
 	//spiralClean();
